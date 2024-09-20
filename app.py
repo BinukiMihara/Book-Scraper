@@ -9,16 +9,9 @@ print(excel.sheetnames)
 sheet.append(['Book Name', 'Rating', 'Price', 'Stock Availability'])
 
 try:
-    # URL for Books to Scrape website
-    url = 'https://books.toscrape.com/'
-
-    # Define headers with User-Agent to mimic a browser request
-    headers = {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36"
-    }
-
-    # Make the request with the headers
-    source = requests.get(url, headers=headers)
+    
+    # Send a GET request to the URL
+    source = requests.get('https://books.toscrape.com/')
     source.raise_for_status()  # Raises an exception for 4xx/5xx errors
 
     # Parse the HTML content
