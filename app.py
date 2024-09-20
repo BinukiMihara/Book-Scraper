@@ -1,5 +1,12 @@
 from bs4 import BeautifulSoup
-import requests
+import requests, openpyxl
+
+excel = openpyxl.Workbook()
+print(excel.sheetnames)
+sheet = excel.active    
+sheet.title = 'Book Details'
+print(excel.sheetnames)
+sheet.append(['Name', 'Rating', 'Price', 'Stock'])
 
 try:
     # URL for Books to Scrape website
@@ -30,6 +37,7 @@ try:
         price = book.find('div', class_ = "product_price").p.get_text(strip=True).strip('£')[1:]
         stock = book.find('p', class_ = "instock availability").get_text(strip=True).strip('""')
         print(name, rating, price, stock)
+        sheet.append([name, rating, price, stock])
         
     
 except Exception as e:
