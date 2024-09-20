@@ -6,7 +6,7 @@ print(excel.sheetnames)
 sheet = excel.active    
 sheet.title = 'Book Details'
 print(excel.sheetnames)
-sheet.append(['Name', 'Rating', 'Price', 'Stock'])
+sheet.append(['Book Name', 'Rating', 'Price', 'Stock Availability'])
 
 try:
     # URL for Books to Scrape website
@@ -43,4 +43,4 @@ try:
 except Exception as e:
     print(f"Error: {e}")
 
-excel.save('books.xlsx')
+excel.save('Book Details of Books to Scrape website.xlsx')
